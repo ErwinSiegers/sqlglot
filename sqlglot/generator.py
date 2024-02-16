@@ -532,7 +532,7 @@ class Generator(metaclass=_Generator):
         """
         if copy:
             expression = expression.copy()
-            print('copy')
+            print(expression)
         expression = self.preprocess(expression)
         self.unsupported_messages = []
         sql = self.sql(expression).strip()
