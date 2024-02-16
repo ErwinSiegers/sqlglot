@@ -532,16 +532,17 @@ class Generator(metaclass=_Generator):
         """
         if copy:
             expression = expression.copy()
-
+            print('copy')
         expression = self.preprocess(expression)
-
+        print(expression)
         self.unsupported_messages = []
         sql = self.sql(expression).strip()
-
+        print(sql)
         if self.pretty:
             sql = sql.replace(self.SENTINEL_LINE_BREAK, "\n")
-
+            print('pretty')
         if self.unsupported_level == ErrorLevel.IGNORE:
+            print('545')
             return sql
 
         if self.unsupported_level == ErrorLevel.WARN:
@@ -549,7 +550,7 @@ class Generator(metaclass=_Generator):
                 logger.warning(msg)
         elif self.unsupported_level == ErrorLevel.RAISE and self.unsupported_messages:
             raise UnsupportedError(concat_messages(self.unsupported_messages, self.max_unsupported))
-        print(sql)
+        
         
         return sql
 
