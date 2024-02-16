@@ -534,7 +534,6 @@ class Generator(metaclass=_Generator):
             expression = expression.copy()
             print('copy')
         expression = self.preprocess(expression)
-        print(expression)
         self.unsupported_messages = []
         sql = self.sql(expression).strip()
         print(sql)
