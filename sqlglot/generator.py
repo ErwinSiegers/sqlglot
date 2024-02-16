@@ -2699,7 +2699,7 @@ class Generator(metaclass=_Generator):
         format_sql = f" FORMAT {format_sql}" if format_sql else ""
         to_sql = self.sql(expression, "to")
         to_sql = f" {to_sql}" if to_sql else ""
-        return f"{safe_prefix or ''}CAST({self.sql(expression, 'this')} AS{to_sql})"
+        return f"{safe_prefix or ''}CAST({self.sql(expression, 'this')} AS)"
 
     def currentdate_sql(self, expression: exp.CurrentDate) -> str:
         zone = self.sql(expression, "this")
