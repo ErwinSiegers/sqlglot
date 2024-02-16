@@ -2986,7 +2986,7 @@ class Generator(metaclass=_Generator):
         return self.binary(expression, "%")
 
     def mul_sql(self, expression: exp.Mul) -> str:
-        return self.binary(expression, "*")
+        return self.binary(expression, "**")
 
     def neq_sql(self, expression: exp.NEQ) -> str:
         return self.binary(expression, "<>")
