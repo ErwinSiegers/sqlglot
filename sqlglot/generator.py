@@ -549,7 +549,7 @@ class Generator(metaclass=_Generator):
                 logger.warning(msg)
         elif self.unsupported_level == ErrorLevel.RAISE and self.unsupported_messages:
             raise UnsupportedError(concat_messages(self.unsupported_messages, self.max_unsupported))
-
+        print('package used')
         return sql
 
     def preprocess(self, expression: exp.Expression) -> exp.Expression:
