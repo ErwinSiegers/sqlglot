@@ -260,7 +260,6 @@ class Expression(metaclass=_Expression):
         if self._meta is not None:
             print('C')
             copy._meta = deepcopy(self._meta)
-        print(copy)
         return copy
 
     def copy(self):
