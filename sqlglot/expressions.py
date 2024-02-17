@@ -268,7 +268,7 @@ class Expression(metaclass=_Expression):
         """
         new = deepcopy(self)
         new.parent = self.parent
-        print(new)
+        
         return new
 
     def add_comments(self, comments: t.Optional[t.List[str]]) -> None:
@@ -506,6 +506,7 @@ class Expression(metaclass=_Expression):
         Same as __repr__, but includes additional information which can be useful
         for debugging, like empty or missing args and the AST nodes' object IDs.
         """
+        print(_to_s(self, verbose=True))
         return _to_s(self, verbose=True)
 
     def sql(self, dialect: DialectType = None, **opts) -> str:
@@ -520,7 +521,7 @@ class Expression(metaclass=_Expression):
             The SQL string.
         """
         from sqlglot.dialects import Dialect
-
+        print(Dialect.get_or_raise(dialect).generate(self, **opts))
         return Dialect.get_or_raise(dialect).generate(self, **opts)
 
     def transform(self, fun, *args, copy=True, **kwargs):
