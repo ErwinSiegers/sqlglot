@@ -506,7 +506,7 @@ class Expression(metaclass=_Expression):
         Same as __repr__, but includes additional information which can be useful
         for debugging, like empty or missing args and the AST nodes' object IDs.
         """
-        print(_to_s(self, verbose=True))
+        #print(_to_s(self, verbose=True))
         return _to_s(self, verbose=True)
 
     def sql(self, dialect: DialectType = None, **opts) -> str:
