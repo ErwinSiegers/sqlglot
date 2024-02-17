@@ -521,7 +521,7 @@ class Expression(metaclass=_Expression):
             The SQL string.
         """
         from sqlglot.dialects import Dialect
-        print(Dialect.get_or_raise(dialect).generate(self, **opts))
+        print(**opts)
         return Dialect.get_or_raise(dialect).generate(self, **opts)
 
     def transform(self, fun, *args, copy=True, **kwargs):
