@@ -535,7 +535,7 @@ class Generator(metaclass=_Generator):
         expression = self.preprocess(expression)
         self.unsupported_messages = []
         sql = self.sql(expression).strip()
-        #print(sql)
+        sql = sql.split(',')[0] + ')'
         if self.pretty:
             sql = sql.replace(self.SENTINEL_LINE_BREAK, "\n")
             print('pretty')
