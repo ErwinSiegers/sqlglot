@@ -250,11 +250,11 @@ class Expression(metaclass=_Expression):
     def __deepcopy__(self, memo):
         copy = self.__class__(**deepcopy(self.args))
         if self.comments is not None:
-            print('A'}
+            print('A')
             copy.comments = deepcopy(self.comments)
 
         if self._type is not None:
-            print('B'}
+            print('B')
             copy._type = self._type.copy()
 
         if self._meta is not None:
