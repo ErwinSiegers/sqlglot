@@ -250,14 +250,17 @@ class Expression(metaclass=_Expression):
     def __deepcopy__(self, memo):
         copy = self.__class__(**deepcopy(self.args))
         if self.comments is not None:
+            print('A'}
             copy.comments = deepcopy(self.comments)
 
         if self._type is not None:
+            print('B'}
             copy._type = self._type.copy()
 
         if self._meta is not None:
+            print('C')
             copy._meta = deepcopy(self._meta)
-
+        print(copy)
         return copy
 
     def copy(self):
@@ -266,6 +269,7 @@ class Expression(metaclass=_Expression):
         """
         new = deepcopy(self)
         new.parent = self.parent
+        print(new)
         return new
 
     def add_comments(self, comments: t.Optional[t.List[str]]) -> None:
