@@ -250,15 +250,12 @@ class Expression(metaclass=_Expression):
     def __deepcopy__(self, memo):
         copy = self.__class__(**deepcopy(self.args))
         if self.comments is not None:
-            print('A')
             copy.comments = deepcopy(self.comments)
 
         if self._type is not None:
-            print('B')
             copy._type = self._type.copy()
 
         if self._meta is not None:
-            print('C')
             copy._meta = deepcopy(self._meta)
         return copy
 
@@ -506,7 +503,6 @@ class Expression(metaclass=_Expression):
         Same as __repr__, but includes additional information which can be useful
         for debugging, like empty or missing args and the AST nodes' object IDs.
         """
-        #print(_to_s(self, verbose=True))
         return _to_s(self, verbose=True)
 
     def sql(self, dialect: DialectType = None, **opts) -> str:
@@ -521,7 +517,6 @@ class Expression(metaclass=_Expression):
             The SQL string.
         """
         from sqlglot.dialects import Dialect
-        print(**opts)
         return Dialect.get_or_raise(dialect).generate(self, **opts)
 
     def transform(self, fun, *args, copy=True, **kwargs):
