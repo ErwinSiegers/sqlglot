@@ -537,12 +537,9 @@ class Generator(metaclass=_Generator):
         sql = self.sql(expression).strip()
         if ',' in sql:
             sql = sql.split(',')[0] + ')'
-        print(sql)
         if self.pretty:
             sql = sql.replace(self.SENTINEL_LINE_BREAK, "\n")
-            print('pretty')
         if self.unsupported_level == ErrorLevel.IGNORE:
-            print('545')
             return sql
 
         if self.unsupported_level == ErrorLevel.WARN:
